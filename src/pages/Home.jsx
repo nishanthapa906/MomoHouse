@@ -1,12 +1,12 @@
-import React from 'react'
-import Hero from '../components/ui/home/hero'
+
+import Hero from '../components/ui/home/Hero'
+
 
 function Home() {
   return (
     <main>
 
-      <Hero/>
-
+    <Hero/>
     
       
     </main>
