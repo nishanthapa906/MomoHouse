@@ -1,4 +1,5 @@
 
+import Filter from '../components/ui/home/Filter'
 import Hero from '../components/ui/home/Hero'
 
 
@@ -7,7 +8,7 @@ function Home() {
     <main>
 
     <Hero/>
-    
+    <Filter/>
       
     </main>
   )
