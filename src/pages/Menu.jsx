@@ -1,6 +1,8 @@
+
 import useFetch from "../hooks/useFetch";
 function Menu() {
   const { productlist, isError, isLoading } = useFetch();
+  
 
   console.log(productlist?.recipes)
   if (isLoading) {
@@ -22,7 +24,7 @@ function Menu() {
                 src={item.image}
                 alt="product_image"
               />
-              <h1 className="text-xl">{item.title}</h1>
+              <h1 className="text-xl">{item.name}</h1>
                   <h1  className="text-xl" >Rs.{item.caloriesPerServing}</h1>
             </div>;
           })}

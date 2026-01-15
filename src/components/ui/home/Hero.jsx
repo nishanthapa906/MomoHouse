@@ -5,8 +5,10 @@ import momo_pic from "../../../assets/images/momo-pic.png"
 import oneBg from "../../../assets/images/oneBg.png"
 
 import { BsArrowRightShort } from "react-icons/bs";
+import { useNavigate } from 'react-router-dom';
 
 function Hero() {
+  const navigate = useNavigate();
     return (
         <section className="flex  justify-end min-h-125   bg-white ">
       <div className="   mt-20 p-4  mr-96 ">
@@ -31,7 +33,12 @@ function Hero() {
             More than <span className="text-[#D95103]"> 20+ Varieties</span> of
             momo available for you{" "}
           </p>
-          <button className="bg-[#0C6967]  flex   justify-center items-center  p-5 mt-4 text-white rounded-[100px] ">
+          <button
+           onClick={()=>
+            navigate('/menu')
+
+           }
+           className="bg-[#0C6967]  flex   justify-center items-center  p-5 mt-4 text-white rounded-[100px] ">
             Explore Food Menu
             <BsArrowRightShort size={20} />
           </button>
@@ -45,6 +52,8 @@ function Hero() {
         />
         <img className="absolute  h-full -top-8   " src={circle} alt="" />
       </div>
+
+      
     </section>
   );
 }

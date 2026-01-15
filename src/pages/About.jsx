@@ -1,10 +1,11 @@
 import React from 'react'
+import Aboutus from '../components/ui/aboutus/Aboutus'
 
 function About() {
   return (
     <div>
 
-        About
+        <Aboutus/>
       
     </div>
   )
