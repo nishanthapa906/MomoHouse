@@ -3,8 +3,10 @@ import "./index.css";
 import App from "./App.jsx";
 import { Bounce, ToastContainer } from "react-toastify";
 import { BrowserRouter } from "react-router-dom";
+import { CartProvider } from "./context/CartProvider.jsx";
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
+  <CartProvider>
     <ToastContainer
       position="top-right"
       autoClose={5000}
@@ -19,6 +21,7 @@ createRoot(document.getElementById("root")).render(
       transition={Bounce}
     />
     <App />
+    </CartProvider>
   </BrowserRouter>
 );
 

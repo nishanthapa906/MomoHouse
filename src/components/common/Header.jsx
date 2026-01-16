@@ -18,6 +18,7 @@ function Header() {
         <NavLink to="/menu">Our Menu</NavLink>
         <NavLink to="/services">Our Services</NavLink>
         <NavLink to="/allergyAdvice">Allergy Advice</NavLink>
+         <NavLink to="/cart">Cart</NavLink>
       </div>
 
       <div className="contact      gap-4 flex  justify-end items-center">

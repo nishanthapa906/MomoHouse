@@ -9,6 +9,8 @@ import Services from "../../pages/Services";
 import AllergyAdvice from "../../pages/AllergyAdvice";
 import PageNotFound from "../../pages/PageNotFound";
 import Profile from "../../pages/Profile";
+import Productdetail from "../../pages/Productdetail";
+import Cart from "../../pages/Cart";
 function AppRoutes() {
   return (
     <div>
@@ -19,8 +21,10 @@ function AppRoutes() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/menu" element={<Menu />} />
+        <Route path="/productdetail" element={<Productdetail />} />
         <Route path="/services" element={<Services />} />
         <Route path="/allergyAdvice" element={<AllergyAdvice />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
