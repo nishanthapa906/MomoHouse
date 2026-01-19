@@ -39,6 +39,7 @@ function Productdetail() {
                                 type:"addToCart",     //add to cart buton click garda data dispatch ko through uta janxa 
                                 payload: state,
                             });
+                            alert("cart Added sucessfully ")
                          }}
                         className="bg-orange-500  h-16  p-2 rounded-sm w-60 text-white text-2xl"  >Add to cart</button>
                     </div>
