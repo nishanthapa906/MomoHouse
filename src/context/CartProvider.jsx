@@ -1,7 +1,7 @@
 import { createContext, useEffect, useReducer } from "react";
 export const CartContext = createContext();
 const getData = () => {
-  let res = localStorage.getItem("cartItmes");
+  let res = localStorage.getItem("cartItems");
   return res ? JSON.parse(res) : [];
 };
 
@@ -41,17 +41,19 @@ const cartReducer = (state, action) => {
       // 3. return new product
 
 
-
       let newCartItems = state.cartItem.map((item) => {
         return item.id == action.payload.id
           ? {
             ...item,
-            qty: item.qty + 1,
+            qty:  item.qty + 1  
+           
           }
           : item;
       });
       return {
-        cartItem: newCartItems,
+        ...state , cartItem: newCartItems,
+        
+        
       };
     }
 
@@ -61,23 +63,26 @@ const cartReducer = (state, action) => {
         return item.id == action.payload.id
           ? {
             ...item,
-            qty: item.qty - 1,
+            qty: item.qty>1 ? item.qty - 1 : 1
           }
           : item;
       });
       return {
-        cartItem: newCartItems,
+        ...state , cartItem: newCartItems,
       };
     }
 
     case "delete": {
-       
+       let filterItem = state.cartItem.filter((item) =>{
+        return item.id !== action.paylod.id
+       }) 
 
-
-      return state;
+      return {
+        cartItem: filterItem
+      };
     }
     case "clearAll": {
-      return state;
+      return { cartItem: []} ;
     }
     default: {
       return state;

@@ -7,7 +7,9 @@ import { CartContext } from '../context/CartProvider';
 
 function Productdetail() {
     const { state } = useLocation();
-    const {dispatch} = useContext(CartContext)    // for providing data for global varible,,, through dispatch
+
+
+    const { dispatch } = useContext(CartContext)    // for providing data for global varible,,, through dispatch
     console.log(state);
     return (
         <div className=" p-5 " >
@@ -22,26 +24,45 @@ function Productdetail() {
 
                     <div className="flex  text-xl items-center gap-x-4 p-1" >
                         <p>Quantity</p>
-                        <button className="bg-gray-400 p-2 rounded-sm  "  >
+                        <button
+                            onClick={() => {
+                                dispatch({ type: "decrement", payload: { id: state.id } });
+                            }}
+                            className="bg-gray-400 p-2 rounded-sm  "  >
                             <TiMinus />
                         </button>
-                        <p className=" text-2xl" >1</p>
-                        <button className="bg-gray-400 p-2    rounded-sm  "  >
+
+                        
+                                
+                                    <p className="text-4xl">{state.id}</p>
+                                   
+                               
+
+
+
+
+
+
+                        <button
+                            onClick={() => {
+                                dispatch({ type: "increment", payload: { id: state.id } })
+                            }}
+                            className="bg-gray-400 p-2   rounded-sm  "  >
                             <HiPlusSm />
                         </button>
                     </div>
 
                     <div className="space-x-3  w-[500px]" >
                         <button className="bg-[#2abbe8]    h-16 p-2 rounded-sm w-60 text-white text-2xl"  >Buy Now</button>
-                        <button 
-                         onClick={()=>{
-                            dispatch({
-                                type:"addToCart",     //add to cart buton click garda data dispatch ko through uta janxa 
-                                payload: state,
-                            });
-                            alert("cart Added sucessfully ")
-                         }}
-                        className="bg-orange-500  h-16  p-2 rounded-sm w-60 text-white text-2xl"  >Add to cart</button>
+                        <button
+                            onClick={() => {
+                                dispatch({
+                                    type: "addToCart",     //add to cart buton click garda data dispatch ko through uta janxa 
+                                    payload: state,
+                                });
+                                alert("cart Added sucessfully ")
+                            }}
+                            className="bg-orange-500  h-16  p-2 rounded-sm w-60 text-white text-2xl"  >Add to cart</button>
                     </div>
                 </div>
             </div>

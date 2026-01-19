@@ -32,7 +32,11 @@ function Cart() {
                   <div className="space-y-3">
                     <h1 className="text-xl">Rs.{item.caloriesPerServing}</h1>
 
-                    <button>
+                    <button 
+                     onClick={()=>{
+                      dispatch({type: "delete" , payload: {id:item.id}});
+                     }}
+                    >
                       <MdDelete size={35} color="red" />
                     </button>
                   </div>
@@ -49,7 +53,7 @@ function Cart() {
                     </button>
                     
                     
-                    <p className=" text-2xl">1</p>
+                    <p className=" text-2xl">{item.qty}</p>
                     <button
                     
                      onClick={() => {
