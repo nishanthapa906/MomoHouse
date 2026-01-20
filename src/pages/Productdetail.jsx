@@ -4,6 +4,7 @@ import { HiPlusSm } from 'react-icons/hi';
 import { TiMinus } from 'react-icons/ti';
 import { useLocation } from 'react-router-dom';
 import { CartContext } from '../context/CartProvider';
+import { Bounce, toast } from 'react-toastify';
 
 function Productdetail() {
     const { state } = useLocation();
@@ -32,16 +33,7 @@ function Productdetail() {
                             <TiMinus />
                         </button>
 
-                        
-                                
-                                    <p className="text-4xl">{state.id}</p>
-                                   
-                               
-
-
-
-
-
+                        <p className="text-4xl">{state.id}</p>
 
                         <button
                             onClick={() => {
@@ -60,7 +52,17 @@ function Productdetail() {
                                     type: "addToCart",     //add to cart buton click garda data dispatch ko through uta janxa 
                                     payload: state,
                                 });
-                                alert("cart Added sucessfully ")
+                                toast.success('Cart Added sucessfully', {
+                                    position: "top-right",
+                                    autoClose: 5000,
+                                    hideProgressBar: false,
+                                    closeOnClick: false,
+                                    pauseOnHover: true,
+                                    draggable: true,
+                                    progress: undefined,
+                                    theme: "light",
+                                    transition: Bounce,
+                                });
                             }}
                             className="bg-orange-500  h-16  p-2 rounded-sm w-60 text-white text-2xl"  >Add to cart</button>
                     </div>

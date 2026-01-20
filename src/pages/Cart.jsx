@@ -8,6 +8,19 @@ import { MdDelete } from "react-icons/md";
 function Cart() {
   const navigate = useNavigate();
   const { state, dispatch } = useContext(CartContext);
+
+
+  let totalItem = state.cartItem?.reduce((acc,item)=>{
+    return acc+item.qty
+  } ,0)            //calculation for qty and price reducer 
+
+    let totalprice = state.cartItem?.reduce((acc,item)=>{
+    return acc+item.qty*item.caloriesPerServing
+  } ,0)
+
+  const shipping = 100;
+
+
   console.log(state.cartItem);
   return (
     <main className="  mt-10   m-auto  ">
@@ -38,6 +51,8 @@ function Cart() {
                      }}
                     >
                       <MdDelete size={35} color="red" />
+
+                      
                     </button>
                   </div>
 
@@ -71,12 +86,12 @@ function Cart() {
           <section className="   h-[400px]    space-y-4  w-[30%] bg-white p-5 ">
             <h1  className="text-2xl font-bold" >Order summary</h1>
             <div  className="flex justify-between text-xl"  >
-              <h1> Subtotal (0 items)</h1>
-              <h1>Rs. 0</h1>
+              <h1> Subtotal ({totalItem} items)</h1>
+              <h1>Rs. {totalprice}</h1>
             </div>
             <div  className="flex justify-between text-xl"  >
               <h1> Shipping Fee</h1>
-              <h1>Rs. 0</h1>
+              <h1>Rs. {shipping}</h1>
             </div>
 
             <div   className="flex gap-x-2 p-5  " >
@@ -86,11 +101,16 @@ function Cart() {
 
             <div  className="flex justify-between text-xl"  >
               <h1> Total</h1>
-              <h1>Rs.0</h1>
+              <h1>Rs.{totalprice  +shipping}</h1>
             </div>
 
             <div>
-              <button  className="    bg-amber-700 p-3 text-white text-2xl w-full ">Procced To Check Out</button>
+              <button  
+               onClick={()=>{
+                 navigate('/payment', {state: totalprice+shipping})
+               }}
+              
+              className="    bg-amber-700 p-3 text-white text-2xl w-full ">Procced To Check Out( { totalItem} )</button>
             </div>
           </section>
         </div>

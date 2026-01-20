@@ -1,10 +1,21 @@
 import { NavLink } from "react-router-dom";
 import { AiOutlineTikTok } from "react-icons/ai";
 import { RiInstagramLine } from "react-icons/ri";
-import { FaFacebook } from "react-icons/fa6";
+import { FaCartArrowDown, FaFacebook } from "react-icons/fa6";
+import { CiShoppingCart } from "react-icons/ci";
 
 import momoImg from "../../assets/images/momo.png";
+import { useContext } from "react";
+import { CartContext } from "../../context/CartProvider";
 function Header() {
+  const { state, dispatch } = useContext(CartContext);
+  
+  
+    let totalItem = state.cartItem?.reduce((acc,item)=>{
+      return acc+item.qty
+    } ,0)
+
+
   return (
     <nav className=" parent       flex    shadow-xl px-4 p-4   justify-around  items-center  ">
       <div className="home  ">
@@ -18,7 +29,10 @@ function Header() {
         <NavLink to="/menu">Our Menu</NavLink>
         <NavLink to="/services">Our Services</NavLink>
         <NavLink to="/allergyAdvice">Allergy Advice</NavLink>
-         <NavLink to="/cart">Cart</NavLink>
+         <NavLink to="/cart"   className='relative' >
+          <p  className="bg-orange-500 p-2    absolute bottom-5 left-1 rounded-full h-7 w-7  flex justify-center items-center text-sm text-white  " > {totalItem}</p>
+          <FaCartArrowDown size={26} />
+        </NavLink>
       </div>
 
       <div className="contact      gap-4 flex  justify-end items-center">
