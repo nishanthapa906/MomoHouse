@@ -12,8 +12,10 @@ import Profile from "../../pages/Profile";
 import Productdetail from "../../pages/Productdetail";
 import Cart from "../../pages/Cart";
 import Payment from "../../features/Payment";
-import Sucess from "../../features/Sucess";
+
 import Failure from "../../features/Failure";
+
+import Success from "../../features/Success";
 function AppRoutes() {
   return (
     <div>
@@ -29,7 +31,7 @@ function AppRoutes() {
         <Route path="/allergyAdvice" element={<AllergyAdvice />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/payment" element={<Payment />} />
-        <Route path="/sucess" element={<Sucess />} />
+        <Route path="/success" element={<Success/>} />
         <Route path="/failure" element={<Failure />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="*" element={<PageNotFound />} />

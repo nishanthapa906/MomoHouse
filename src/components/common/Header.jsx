@@ -69,13 +69,13 @@ function Header() {
           </NavLink>
           <NavLink
             className="hover:underline text-md hover:font-bold"
-            to="/profile"
+            to="/login"
           >
             Login
           </NavLink>
           <NavLink
             className="hover:underline text-md hover:font-bold"
-            to="/profile"
+            to="/register"
           >
             Register{" "}
           </NavLink>
