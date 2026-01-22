@@ -1,6 +1,9 @@
+import { useAuth0 } from "@auth0/auth0-react";
 import { FcGoogle } from "react-icons/fc";
 
 function Login() {
+
+  const { loginWithRedirect } = useAuth0();
   return (
     <div  className="border w-[500px]  bg-white rounded-sm  p-5   flex flex-col justify-center items-center gap-y-5 mt-20 m-auto" >
       <h1 className="text-3xl underline"> Login Page </h1>
@@ -25,7 +28,10 @@ function Login() {
 
       <h1 className="text-xl" > Or Login with  </h1>
 
-      <button>
+      <button
+      onClick={()=>{
+        loginWithRedirect();
+      }}>
 
         <FcGoogle size={40} />
 
